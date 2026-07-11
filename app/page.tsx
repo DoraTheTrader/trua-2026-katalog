@@ -2,6 +2,9 @@
 
 import { useMemo, useState } from "react";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const assetPath = (path: string) => `${basePath}${path}`;
+
 type Product = {
   code: string;
   name: string;
@@ -76,7 +79,7 @@ function ProductModal({ product, close }: { product: Product; close: () => void 
       <div className="modal" role="dialog" aria-modal="true" aria-label={`${product.name} seçenekleri`} onMouseDown={(e) => e.stopPropagation()}>
         <button className="modal-close" onClick={close} aria-label="Kapat">×</button>
         <div className="modal-top">
-          <div className="modal-image"><img src={`/products-hires/${product.code.replace("/", "-")}.jpg`} alt={product.name} /></div>
+          <div className="modal-image"><img src={assetPath(`/products-hires/${product.code.replace("/", "-")}.jpg`)} alt={product.name} /></div>
           <div><span className="eyebrow">{product.category} · {product.code}</span><h2>{product.name}</h2><p>Renk ve ölçü seçeneklerini inceleyin.</p></div>
         </div>
         <div className="product-options">
@@ -117,9 +120,9 @@ export default function Home() {
         </div>
         <div className="hero-art" aria-label="Trua ürün seçkisi">
           <div className="mosaic"></div>
-          <div className="cover-card"><img src="/catalog/catalog-002.jpg" alt="Trua 2026 katalog kapağı" /></div>
-          <div className="product-float float-one"><img src="/products-hires/3020.jpg" alt="Lort kulp" /></div>
-          <div className="product-float float-two"><img src="/products-hires/3018.jpg" alt="Prens kulp" /></div>
+          <div className="cover-card"><img src={assetPath("/catalog/catalog-002.jpg")} alt="Trua 2026 katalog kapağı" /></div>
+          <div className="product-float float-one"><img src={assetPath("/products-hires/3020.jpg")} alt="Lort kulp" /></div>
+          <div className="product-float float-two"><img src={assetPath("/products-hires/3018.jpg")} alt="Prens kulp" /></div>
           <span className="year-mark">’26</span>
         </div>
       </section>
@@ -133,7 +136,7 @@ export default function Home() {
         <div className="product-grid">
           {filtered.slice(0, visible).map((product) => {
             return <button className="product-card" key={`${product.code}-${product.name}`} onClick={() => setSelected(product)}>
-              <div className="product-image"><img src={`/products-hires/${product.code.replace("/", "-")}.jpg`} alt={product.name} loading="lazy" /><span>{product.category}</span></div>
+              <div className="product-image"><img src={assetPath(`/products-hires/${product.code.replace("/", "-")}.jpg`)} alt={product.name} loading="lazy" /><span>{product.category}</span></div>
               <div className="product-info"><small>{product.code}</small><h3>{product.name}</h3><div className="product-meta"><span>{product.sizes.length} ölçü</span><span>{product.colors.length} renk</span></div><div className="detail-row"><span>Ürünü incele</span><i>↗</i></div></div>
             </button>;
           })}
@@ -143,7 +146,7 @@ export default function Home() {
       </section>
 
       <section className="about" id="hakkimizda">
-        <div className="about-visual"><img src="/products-hires/3015.jpg" alt="Trua Ezgi mobilya kulbu" /><div className="quality-stamp"><b>TRUA</b><span>Kalite odaklı üretim</span></div></div>
+        <div className="about-visual"><img src={assetPath("/products-hires/3015.jpg")} alt="Trua Ezgi mobilya kulbu" /><div className="quality-stamp"><b>TRUA</b><span>Kalite odaklı üretim</span></div></div>
         <div className="about-copy"><span className="eyebrow">HAKKIMIZDA</span><h2>Tasarımdan üretime, her detayda <em>ustalık.</em></h2><p>Trua, mobilya aksesuarları imalatında öne çıkan bir marka olarak dolap ve çekmece kulpları üretiminde estetiği ve fonksiyonelliği harmanlar. Yılların deneyimiyle kalite odaklı üretimi benimser, her adımda müşteri memnuniyetini esas alır.</p><p>Modern ve klasik tasarımların yanında özel siparişlere açık ürün yelpazemizi; farklı renk, doku ve biçim seçenekleriyle sürekli geliştiriyoruz. Doğaya duyarlı üretim süreçleriyle uzun ömürlü, dayanıklı ve karakterli çözümler sunuyoruz.</p><div className="values"><div><b>01</b><span><strong>Kalite</strong>Uzun ömürlü malzeme ve titiz denetim</span></div><div><b>02</b><span><strong>Tasarım</strong>Her stile uyum sağlayan özgün çizgiler</span></div><div><b>03</b><span><strong>İş birliği</strong>Projelerinize uzun vadeli destek</span></div></div></div>
       </section>
 

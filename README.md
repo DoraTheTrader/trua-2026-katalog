@@ -4,6 +4,28 @@ A clean full-stack starter running on
 [vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
 Drizzle support.
 
+## GitHub Pages ile yayınlama
+
+Bu proje GitHub Pages için hazırdır. Depoyu GitHub'a yükledikten sonra:
+
+1. GitHub deposunda **Settings → Pages** bölümünü açın.
+2. **Build and deployment → Source** alanında **GitHub Actions** seçin.
+3. `main` veya `master` dalına gönderim yaptığınızda site otomatik derlenip yayınlanır.
+4. Yayın adresi Actions çalışmasının **deploy** adımında ve **Settings → Pages** ekranında görünür.
+
+Depo `kullanici.github.io` adındaysa site kök adreste; farklı bir depo adına sahipse `kullanici.github.io/depo-adi/` altında çalışır. Görsel ve statik dosya yolları iki duruma da otomatik uyarlanır.
+
+Yerel GitHub Pages çıktısı oluşturmak için PowerShell'de:
+
+```powershell
+$env:GITHUB_PAGES="true"
+$env:NEXT_PUBLIC_BASE_PATH="/depo-adi"
+$env:NEXT_PUBLIC_SITE_ORIGIN="https://kullanici.github.io"
+npm run build:pages
+```
+
+Statik çıktı `out/` klasörüne yazılır.
+
 ## Prerequisites
 
 - Node.js `>=22.13.0`
