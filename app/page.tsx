@@ -6,7 +6,6 @@ type Product = {
   code: string;
   name: string;
   category: "Zamak" | "Düğme" | "Boy Kulp" | "Askı & Portmanto";
-  image: number;
   sizes: string[];
   colors: string[];
 };
@@ -15,10 +14,9 @@ const p = (
   code: string,
   name: string,
   category: Product["category"],
-  image: number,
   sizes: string[],
   colors: string[],
-): Product => ({ code, name, category, image, sizes, colors });
+): Product => ({ code, name, category, sizes, colors });
 
 const zamak4 = ["128", "160", "192", "224"];
 const zamak3 = ["128", "160", "224"];
@@ -26,48 +24,48 @@ const zamak2 = ["96–128", "160–192"];
 const boy = ["128", "160", "192", "224", "256", "288", "320"];
 
 const products: Product[] = [
-  p("3020", "Lort", "Zamak", 3, zamak4, ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3021", "Çizgili Lort", "Zamak", 4, zamak4, ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3018", "Prens", "Zamak", 5, zamak3, ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3019", "Çizgili Prens", "Zamak", 6, zamak3, ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3008", "Alfa", "Zamak", 8, zamak3, ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3016", "Beta", "Zamak", 9, zamak3, ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3011", "Kale", "Zamak", 10, ["96–128", "160–192", "160"], ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3005", "Kuvas", "Zamak", 11, ["160"], ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3023", "Klas Gama", "Zamak", 12, ["160"], ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3022", "Gama", "Zamak", 14, zamak4, ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3017", "Tiran", "Zamak", 15, zamak3, ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3015", "Ezgi", "Zamak", 16, zamak3, ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3034", "Roma", "Zamak", 18, zamak2, ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3035", "Çizgili Roma", "Zamak", 20, zamak2, ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3036", "Babil", "Zamak", 21, zamak2, ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3037", "Çizgili Babil", "Zamak", 22, zamak2, ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3032", "Paris", "Zamak", 23, zamak2, ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3033", "Bakü", "Zamak", 24, zamak2, ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3007", "Rumeli", "Zamak", 25, ["160"], ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3006", "Galata", "Zamak", 26, ["160"], ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3038", "Lüx Safran", "Zamak", 28, ["160"], ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3039", "Çizgili Lüx Safran", "Zamak", 30, ["160"], ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3040", "Safran", "Zamak", 32, ["160", "224"], ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3041", "Çizgili Safran", "Zamak", 33, ["160", "224"], ["Siyah", "Krom", "İnox", "Altın"]),
-  p("2500", "Yuvarlak Düz", "Düğme", 34, ["Standart"], ["Siyah", "Krom", "İnox", "Altın"]),
-  p("2601", "Kare Set", "Düğme", 35, ["Standart"], ["Siyah", "Krom", "İnox", "Altın"]),
-  p("2502", "Yuvarlak Klas", "Düğme", 38, ["Standart"], ["Siyah", "Krom", "İnox", "Altın"]),
-  p("2602", "Kare Klas", "Düğme", 39, ["Standart"], ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3028", "Gondol", "Zamak", 41, ["96", "128"], ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3024", "Favori", "Zamak", 43, ["160", "224"], ["Siyah", "Krom", "İnox", "Altın"]),
-  p("3050", "Elf", "Zamak", 44, ["160", "224"], ["Siyah", "Krom", "İnox", "Altın"]),
-  p("5000", "Tas Kulp", "Zamak", 46, ["64", "96"], ["Siyah", "Krom", "İnox", "Altın"]),
-  p("6007", "Nepal", "Boy Kulp", 47, boy, ["Siyah", "Krom", "Altın", "Antik"]),
-  p("6008", "Tibet", "Boy Kulp", 49, boy, ["Siyah", "Krom", "Altın", "Antik"]),
-  p("6010", "London", "Boy Kulp", 53, boy, ["Siyah", "Krom", "Altın", "Antik"]),
-  p("6006", "Arya", "Boy Kulp", 55, boy, ["Siyah", "Krom", "Altın", "Antik"]),
-  p("6004", "Madrid", "Boy Kulp", 57, boy, ["Siyah", "Krom", "Altın", "Antik"]),
-  p("6005", "Milan", "Boy Kulp", 58, boy, ["Siyah", "Krom", "Altın", "Antik"]),
-  p("4500", "Asport Askı", "Askı & Portmanto", 59, ["Askı"], ["Siyah", "Krom", "Altın"]),
-  p("4003/4503", "Mostar", "Askı & Portmanto", 60, ["Askı", "Portmanto"], ["Siyah", "Krom", "Altın"]),
-  p("4015/4515", "Boncuk", "Askı & Portmanto", 59, ["Askı", "Portmanto"], ["Siyah", "Krom", "Altın"]),
-  p("4001/4501", "Mali", "Askı & Portmanto", 60, ["Askı", "Portmanto"], ["Siyah", "Krom", "Altın"]),
+  p("3020", "Lort", "Zamak", zamak4, ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3021", "Çizgili Lort", "Zamak", zamak4, ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3018", "Prens", "Zamak", zamak3, ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3019", "Çizgili Prens", "Zamak", zamak3, ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3008", "Alfa", "Zamak", zamak3, ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3016", "Beta", "Zamak", zamak3, ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3011", "Kale", "Zamak", ["96–128", "160–192", "160"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3005", "Kuvas", "Zamak", ["160"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3023", "Klas Gama", "Zamak", ["160"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3022", "Gama", "Zamak", zamak4, ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3017", "Tiran", "Zamak", zamak3, ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3015", "Ezgi", "Zamak", zamak3, ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3034", "Roma", "Zamak", zamak2, ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3035", "Çizgili Roma", "Zamak", zamak2, ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3036", "Babil", "Zamak", zamak2, ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3037", "Çizgili Babil", "Zamak", zamak2, ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3032", "Paris", "Zamak", zamak2, ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3033", "Bakü", "Zamak", zamak2, ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3007", "Rumeli", "Zamak", ["160"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3006", "Galata", "Zamak", ["160"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3038", "Lüx Safran", "Zamak", ["160"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3039", "Çizgili Lüx Safran", "Zamak", ["160"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3040", "Safran", "Zamak", ["160", "224"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3041", "Çizgili Safran", "Zamak", ["160", "224"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("2500", "Yuvarlak Düz", "Düğme", ["Standart"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("2601", "Kare Set", "Düğme", ["Standart"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("2502", "Yuvarlak Klas", "Düğme", ["Standart"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("2602", "Kare Klas", "Düğme", ["Standart"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3028", "Gondol", "Zamak", ["96", "128"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3024", "Favori", "Zamak", ["160", "224"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("3050", "Elf", "Zamak", ["160", "224"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("5000", "Tas Kulp", "Zamak", ["64", "96"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("6007", "Nepal", "Boy Kulp", boy, ["Siyah", "Krom", "Altın", "Antik"]),
+  p("6008", "Tibet", "Boy Kulp", boy, ["Siyah", "Krom", "Altın", "Antik"]),
+  p("6010", "London", "Boy Kulp", boy, ["Siyah", "Krom", "Altın", "Antik"]),
+  p("6006", "Arya", "Boy Kulp", boy, ["Siyah", "Krom", "Altın", "Antik"]),
+  p("6004", "Madrid", "Boy Kulp", boy, ["Siyah", "Krom", "Altın", "Antik"]),
+  p("6005", "Milan", "Boy Kulp", boy, ["Siyah", "Krom", "Altın", "Antik"]),
+  p("4500", "Asport Askı", "Askı & Portmanto", ["Askı"], ["Siyah", "Krom", "Altın"]),
+  p("4003/4503", "Mostar", "Askı & Portmanto", ["Askı", "Portmanto"], ["Siyah", "Krom", "Altın"]),
+  p("4015/4515", "Boncuk", "Askı & Portmanto", ["Askı", "Portmanto"], ["Siyah", "Krom", "Altın"]),
+  p("4001/4501", "Mali", "Askı & Portmanto", ["Askı", "Portmanto"], ["Siyah", "Krom", "Altın"]),
 ];
 
 const categories = ["Tümü", "Zamak", "Düğme", "Boy Kulp", "Askı & Portmanto"] as const;
@@ -78,7 +76,7 @@ function ProductModal({ product, close }: { product: Product; close: () => void 
       <div className="modal" role="dialog" aria-modal="true" aria-label={`${product.name} seçenekleri`} onMouseDown={(e) => e.stopPropagation()}>
         <button className="modal-close" onClick={close} aria-label="Kapat">×</button>
         <div className="modal-top">
-          <div className="modal-image"><img src={`/products/product-${String(product.image).padStart(3, "0")}.png`} alt={product.name} /></div>
+          <div className="modal-image"><img src={`/products-hires/${product.code.replace("/", "-")}.jpg`} alt={product.name} /></div>
           <div><span className="eyebrow">{product.category} · {product.code}</span><h2>{product.name}</h2><p>Renk ve ölçü seçeneklerini inceleyin.</p></div>
         </div>
         <div className="product-options">
@@ -90,7 +88,6 @@ function ProductModal({ product, close }: { product: Product; close: () => void 
     </div>
   );
 }
-
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState<(typeof categories)[number]>("Tümü");
   const [query, setQuery] = useState("");
@@ -116,13 +113,13 @@ export default function Home() {
           <h1>Mobilyaya dokunan <em>son çizgi.</em></h1>
           <p>Estetik, dayanıklılık ve ustalıkla üretilen dolap kulpları, çekmece kulpları ve mobilya aksesuarları.</p>
           <div className="hero-actions"><a className="button primary" href="#urunler">Koleksiyonu keşfet <span>↓</span></a><a className="button ghost" href="#iletisim">Bilgi alın <span>↗</span></a></div>
-          <div className="hero-stats"><div><strong>{products.length}</strong><span>katalog modeli</span></div><div><strong>4+</strong><span>renk seçeneği</span></div><div><strong>2026</strong><span>ürün koleksiyonu</span></div></div>
+          <div className="hero-stats"><div><strong>{products.length}</strong><span>katalog modeli</span></div><div><strong>4+</strong><span>renk seçeneği</span></div></div>
         </div>
         <div className="hero-art" aria-label="Trua ürün seçkisi">
           <div className="mosaic"></div>
           <div className="cover-card"><img src="/catalog/catalog-002.jpg" alt="Trua 2026 katalog kapağı" /></div>
-          <div className="product-float float-one"><img src="/products/product-003.png" alt="Lort kulp" /></div>
-          <div className="product-float float-two"><img src="/products/product-005.png" alt="Prens kulp" /></div>
+          <div className="product-float float-one"><img src="/products-hires/3020.jpg" alt="Lort kulp" /></div>
+          <div className="product-float float-two"><img src="/products-hires/3018.jpg" alt="Prens kulp" /></div>
           <span className="year-mark">’26</span>
         </div>
       </section>
@@ -136,7 +133,7 @@ export default function Home() {
         <div className="product-grid">
           {filtered.slice(0, visible).map((product) => {
             return <button className="product-card" key={`${product.code}-${product.name}`} onClick={() => setSelected(product)}>
-              <div className="product-image"><img src={`/products/product-${String(product.image).padStart(3, "0")}.png`} alt={product.name} loading="lazy" /><span>{product.category}</span></div>
+              <div className="product-image"><img src={`/products-hires/${product.code.replace("/", "-")}.jpg`} alt={product.name} loading="lazy" /><span>{product.category}</span></div>
               <div className="product-info"><small>{product.code}</small><h3>{product.name}</h3><div className="product-meta"><span>{product.sizes.length} ölçü</span><span>{product.colors.length} renk</span></div><div className="detail-row"><span>Ürünü incele</span><i>↗</i></div></div>
             </button>;
           })}
@@ -146,7 +143,7 @@ export default function Home() {
       </section>
 
       <section className="about" id="hakkimizda">
-        <div className="about-visual"><img src="/products/product-016.png" alt="Trua Ezgi mobilya kulbu" /><div className="quality-stamp"><b>TRUA</b><span>Kalite odaklı üretim</span></div></div>
+        <div className="about-visual"><img src="/products-hires/3015.jpg" alt="Trua Ezgi mobilya kulbu" /><div className="quality-stamp"><b>TRUA</b><span>Kalite odaklı üretim</span></div></div>
         <div className="about-copy"><span className="eyebrow">HAKKIMIZDA</span><h2>Tasarımdan üretime, her detayda <em>ustalık.</em></h2><p>Trua, mobilya aksesuarları imalatında öne çıkan bir marka olarak dolap ve çekmece kulpları üretiminde estetiği ve fonksiyonelliği harmanlar. Yılların deneyimiyle kalite odaklı üretimi benimser, her adımda müşteri memnuniyetini esas alır.</p><p>Modern ve klasik tasarımların yanında özel siparişlere açık ürün yelpazemizi; farklı renk, doku ve biçim seçenekleriyle sürekli geliştiriyoruz. Doğaya duyarlı üretim süreçleriyle uzun ömürlü, dayanıklı ve karakterli çözümler sunuyoruz.</p><div className="values"><div><b>01</b><span><strong>Kalite</strong>Uzun ömürlü malzeme ve titiz denetim</span></div><div><b>02</b><span><strong>Tasarım</strong>Her stile uyum sağlayan özgün çizgiler</span></div><div><b>03</b><span><strong>İş birliği</strong>Projelerinize uzun vadeli destek</span></div></div></div>
       </section>
 
