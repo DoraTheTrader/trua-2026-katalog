@@ -8,7 +8,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.includes("localhost") ? "http" : "https");
   const origin = `${protocol}://${host}`;
   const title = "Trua | Mobilya Aksesuarları 2026 Kataloğu";
-  const description = "Trua dolap kulpları, çekmece kulpları ve mobilya aksesuarları 2026 ürün kataloğu ve güncel fiyat listesi.";
+  const description = "Trua dolap kulpları, çekmece kulpları ve mobilya aksesuarları 2026 ürün kataloğu.";
 
   return {
     title,
