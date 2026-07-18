@@ -11,6 +11,7 @@ type Product = {
   category: "Zamak" | "Düğme" | "Boy Kulp" | "Askı & Portmanto";
   sizes: string[];
   colors: string[];
+  images?: string[];
 };
 
 const p = (
@@ -19,7 +20,12 @@ const p = (
   category: Product["category"],
   sizes: string[],
   colors: string[],
-): Product => ({ code, name, category, sizes, colors });
+  images?: string[],
+): Product => ({ code, name, category, sizes, colors, images });
+
+const productImages = (product: Product) => product.images ?? [
+  `/products-hires/${product.code.replace("/", "-")}.jpg`,
+];
 
 const zamak4 = ["128", "160", "192", "224"];
 const zamak3 = ["128", "160", "224"];
@@ -52,23 +58,38 @@ const products: Product[] = [
   p("3040", "Safran", "Zamak", ["160", "224"], ["Siyah", "Krom", "İnox", "Altın"]),
   p("3041", "Çizgili Safran", "Zamak", ["160", "224"], ["Siyah", "Krom", "İnox", "Altın"]),
   p("2500", "Yuvarlak Düz", "Düğme", ["Standart"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("2600", "Kare Düz", "Düğme", ["Standart"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("2501", "Yuvarlak Set", "Düğme", ["Standart"], ["Siyah", "Krom", "İnox", "Altın"]),
   p("2601", "Kare Set", "Düğme", ["Standart"], ["Siyah", "Krom", "İnox", "Altın"]),
   p("2502", "Yuvarlak Klas", "Düğme", ["Standart"], ["Siyah", "Krom", "İnox", "Altın"]),
   p("2602", "Kare Klas", "Düğme", ["Standart"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("2503", "Yuvarlak Dalga", "Düğme", ["Standart"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("2603", "Kare Dalga", "Düğme", ["Standart"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("2504", "Yuvarlak Güneş", "Düğme", ["Standart"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("2604", "Kare Güneş", "Düğme", ["Standart"], ["Siyah", "Krom", "İnox", "Altın"]),
   p("3028", "Gondol", "Zamak", ["96", "128"], ["Siyah", "Krom", "İnox", "Altın"]),
   p("3024", "Favori", "Zamak", ["160", "224"], ["Siyah", "Krom", "İnox", "Altın"]),
   p("3050", "Elf", "Zamak", ["160", "224"], ["Siyah", "Krom", "İnox", "Altın"]),
   p("5000", "Tas Kulp", "Zamak", ["64", "96"], ["Siyah", "Krom", "İnox", "Altın"]),
+  p("5001", "Çizgili Tas Kulp", "Zamak", ["64", "96"], ["Siyah", "Krom", "İnox", "Altın"]),
   p("6007", "Nepal", "Boy Kulp", boy, ["Siyah", "Krom", "Altın", "Antik"]),
+  p("6007", "Çizgili Nepal", "Boy Kulp", boy, ["Siyah", "Krom", "Altın", "Antik"], ["/products-hires/6007-cizgili.jpg"]),
   p("6008", "Tibet", "Boy Kulp", boy, ["Siyah", "Krom", "Altın", "Antik"]),
+  p("6008", "Çizgili Tibet", "Boy Kulp", boy, ["Siyah", "Krom", "Altın", "Antik"], ["/products-hires/6008-cizgili.jpg"]),
   p("6010", "London", "Boy Kulp", boy, ["Siyah", "Krom", "Altın", "Antik"]),
+  p("6010", "Çizgili London", "Boy Kulp", boy, ["Siyah", "Krom", "Altın", "Antik"], ["/products-hires/6010-cizgili.jpg"]),
   p("6006", "Arya", "Boy Kulp", boy, ["Siyah", "Krom", "Altın", "Antik"]),
+  p("6006", "Çizgili Arya", "Boy Kulp", boy, ["Siyah", "Krom", "Altın", "Antik"], ["/products-hires/6006-cizgili.jpg"]),
   p("6004", "Madrid", "Boy Kulp", boy, ["Siyah", "Krom", "Altın", "Antik"]),
+  p("6004", "Çizgili Madrid", "Boy Kulp", boy, ["Siyah", "Krom", "Altın", "Antik"], ["/products-hires/6004-cizgili.jpg"]),
   p("6005", "Milan", "Boy Kulp", boy, ["Siyah", "Krom", "Altın", "Antik"]),
+  p("6005", "Çizgili Milan", "Boy Kulp", boy, ["Siyah", "Krom", "Altın", "Antik"], ["/products-hires/6005-cizgili.jpg"]),
   p("4500", "Asport Askı", "Askı & Portmanto", ["Askı"], ["Siyah", "Krom", "Altın"]),
-  p("4003/4503", "Mostar", "Askı & Portmanto", ["Askı", "Portmanto"], ["Siyah", "Krom", "Altın"]),
-  p("4015/4515", "Boncuk", "Askı & Portmanto", ["Askı", "Portmanto"], ["Siyah", "Krom", "Altın"]),
-  p("4001/4501", "Mali", "Askı & Portmanto", ["Askı", "Portmanto"], ["Siyah", "Krom", "Altın"]),
+  p("4002/4502", "Bosna", "Askı & Portmanto", ["Askı", "Portmanto"], ["Siyah", "Krom", "Altın"], ["/products-hires/4002.jpg", "/products-hires/4502.jpg"]),
+  p("4003/4503", "Mostar", "Askı & Portmanto", ["Askı", "Portmanto"], ["Siyah", "Krom", "Altın"], ["/products-hires/4003.jpg", "/products-hires/4503.jpg"]),
+  p("4014/4514", "Noktalı", "Askı & Portmanto", ["Askı", "Portmanto"], ["Siyah", "Krom", "Altın"], ["/products-hires/4014.jpg", "/products-hires/4514.jpg"]),
+  p("4015/4515", "Boncuk", "Askı & Portmanto", ["Askı", "Portmanto"], ["Siyah", "Krom", "Altın"], ["/products-hires/4015.jpg", "/products-hires/4515.jpg"]),
+  p("4001/4501", "Mali", "Askı & Portmanto", ["Askı", "Portmanto"], ["Siyah", "Krom", "Altın"], ["/products-hires/4001.jpg", "/products-hires/4501.jpg"]),
 ];
 
 const categories = ["Tümü", "Zamak", "Düğme", "Boy Kulp", "Askı & Portmanto"] as const;
@@ -79,7 +100,7 @@ function ProductModal({ product, close }: { product: Product; close: () => void 
       <div className="modal" role="dialog" aria-modal="true" aria-label={`${product.name} seçenekleri`} onMouseDown={(e) => e.stopPropagation()}>
         <button className="modal-close" onClick={close} aria-label="Kapat">×</button>
         <div className="modal-top">
-          <div className="modal-image"><img src={assetPath(`/products-hires/${product.code.replace("/", "-")}.jpg`)} alt={product.name} /></div>
+          <div className={`modal-image${productImages(product).length > 1 ? " multi" : ""}`}>{productImages(product).map((image, index) => <img key={image} src={assetPath(image)} alt={`${product.name}${productImages(product).length > 1 ? ` ${index + 1}` : ""}`} />)}</div>
           <div><span className="eyebrow">{product.category} · {product.code}</span><h2>{product.name}</h2><p>Renk ve ölçü seçeneklerini inceleyin.</p></div>
         </div>
         <div className="product-options">
@@ -112,7 +133,7 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-copy">
-          <span className="eyebrow">TRUA · 2026 KOLEKSİYONU</span>
+          <span className="eyebrow">TRUA · KOLEKSİYONU</span>
           <h1>Mobilyaya dokunan <em>son çizgi.</em></h1>
           <p>Estetik, dayanıklılık ve ustalıkla üretilen dolap kulpları, çekmece kulpları ve mobilya aksesuarları.</p>
           <div className="hero-actions"><a className="button primary" href="#urunler">Koleksiyonu keşfet <span>↓</span></a><a className="button ghost" href="#iletisim">Bilgi alın <span>↗</span></a></div>
@@ -120,10 +141,9 @@ export default function Home() {
         </div>
         <div className="hero-art" aria-label="Trua ürün seçkisi">
           <div className="mosaic"></div>
-          <div className="cover-card"><img src={assetPath("/catalog/catalog-002.jpg")} alt="Trua 2026 katalog kapağı" /></div>
+          <div className="cover-card"><img src={assetPath("/catalog/catalog-062.jpg")} alt="Trua katalog kapağı" /></div>
           <div className="product-float float-one"><img src={assetPath("/products-hires/3020.jpg")} alt="Lort kulp" /></div>
           <div className="product-float float-two"><img src={assetPath("/products-hires/3018.jpg")} alt="Prens kulp" /></div>
-          <span className="year-mark">’26</span>
         </div>
       </section>
 
@@ -136,7 +156,7 @@ export default function Home() {
         <div className="product-grid">
           {filtered.slice(0, visible).map((product) => {
             return <button className="product-card" key={`${product.code}-${product.name}`} onClick={() => setSelected(product)}>
-              <div className="product-image"><img src={assetPath(`/products-hires/${product.code.replace("/", "-")}.jpg`)} alt={product.name} loading="lazy" /><span>{product.category}</span></div>
+              <div className="product-image"><img src={assetPath(productImages(product)[0])} alt={product.name} loading="lazy" /><span>{product.category}</span></div>
               <div className="product-info"><small>{product.code}</small><h3>{product.name}</h3><div className="product-meta"><span>{product.sizes.length} ölçü</span><span>{product.colors.length} renk</span></div><div className="detail-row"><span>Ürünü incele</span><i>↗</i></div></div>
             </button>;
           })}
@@ -155,7 +175,7 @@ export default function Home() {
         <div className="contact-links"><a href="tel:+905322241664"><span>Telefon</span><strong>0 532 224 16 64</strong><i>↗</i></a><a href="mailto:info@tuanaaks.com"><span>E-posta</span><strong>info@tuanaaks.com</strong><i>↗</i></a><a href="https://www.tuanaaks.com" target="_blank" rel="noreferrer"><span>Web</span><strong>www.tuanaaks.com</strong><i>↗</i></a><a href="https://share.google/pNLsPmhvnkkRtUyts" target="_blank" rel="noreferrer"><span>Konum</span><strong>Google’da görüntüle</strong><i>↗</i></a></div>
       </section>
 
-      <footer><a className="brand light" href="#top"><b>trua</b><span>mobilya aksesuarları</span></a><p>© 2026 Trua. Tüm hakları saklıdır.</p><a href="#top">Yukarı dön ↑</a></footer>
+      <footer><a className="brand light" href="#top"><b>trua</b><span>mobilya aksesuarları</span></a><p>© Trua. Tüm hakları saklıdır.</p><a href="#top">Yukarı dön ↑</a></footer>
       {selected && <ProductModal product={selected} close={() => setSelected(null)} />}
     </main>
   );
