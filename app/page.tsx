@@ -172,7 +172,7 @@ export default function Home() {
 
       <section className="contact" id="iletisim">
         <div><span className="eyebrow">BİRLİKTE ÜRETELİM</span><h2>Projeniz için doğru detayı birlikte seçelim.</h2></div>
-        <div className="contact-links"><a href="tel:+905322241664"><span>Telefon</span><strong>0 532 224 16 64</strong><i>↗</i></a><a href="mailto:info@tuanaaks.com"><span>E-posta</span><strong>info@tuanaaks.com</strong><i>↗</i></a><a href="https://www.tuanaaks.com" target="_blank" rel="noreferrer"><span>Web</span><strong>www.tuanaaks.com</strong><i>↗</i></a><a href="https://share.google/pNLsPmhvnkkRtUyts" target="_blank" rel="noreferrer"><span>Konum</span><strong>Google’da görüntüle</strong><i>↗</i></a></div>
+        <div className="contact-links"><a href="tel:+905322241664"><span>Telefon</span><strong>0 532 224 16 64</strong><i>↗</i></a><a href="mailto:info@tuanaaks.com"><span>E-posta</span><strong>info@tuanaaks.com</strong><i>↗</i></a><a href="https://trua.com.tr" target="_blank" rel="noreferrer"><span>Web</span><strong>trua.com.tr</strong><i>↗</i></a><a href="https://share.google/pNLsPmhvnkkRtUyts" target="_blank" rel="noreferrer"><span>Konum</span><strong>Google’da görüntüle</strong><i>↗</i></a></div>
       </section>
 
       <footer><a className="brand light" href="#top"><b>trua</b><span>mobilya aksesuarları</span></a><p>© Trua. Tüm hakları saklıdır.</p><a href="#top">Yukarı dön ↑</a></footer>
